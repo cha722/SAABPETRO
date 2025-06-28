@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saab Petroleum | Premium Fuel & Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a5a8c;
+            --secondary: #e30613;
+            --accent: #ffc107;
+            --accent-light: #ffdb70;
+            --light: #f8f9fa;
+            --light-blue: #e6f4ff;
+            --dark: #1a1a2e;
+            --white: #ffffff;
+            --gray: #8d99ae;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --shadow-hover: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--white);
+            padding: 10px 0;
+            font-size: 14px;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .top-bar-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .top-bar-links a {
+            color: var(--accent-light);
+            text-decoration: none;
+            margin-right: 20px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .top-bar-links a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .language-selector {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent-light);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            color: var(--accent);
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Header */
+        .header-main {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            height: 60px;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2));
+        }
+        
+        .logo-text {
+            font-size: 30px;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .main-nav li {
+            position: relative;
+        }
+        
+        .main-nav > ul > li > a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            display: block;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .main-nav > ul > li > a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .main-nav > ul > li > a:hover:after,
+        .main-nav > ul > li > a.active:after {
+            width: 70%;
+        }
+        
+        .main-nav > ul > li > a:hover,
+        .main-nav > ul > li > a.active {
+            color: var(--primary);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            min-width: 250px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 10;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .dropdown-menu ul {
+            display: block;
+        }
+        
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            display: block;
+            text-decoration: none;
+            color: var(--dark);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+        
+        .dropdown-menu li a:hover {
+            background: var(--primary);
+            color: var(--white);
+            padding-left: 25px;
+        }
+        
+        .main-nav li:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-icon, .mobile-menu-btn {
+            font-size: 22px;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--light-blue);
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .search-icon:hover, .mobile-menu-btn:hover {
+            color: var(--accent);
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+        }
+        
+        /* Hero Gallery */
+        .hero-gallery {
+            position: relative;
+            height: 90vh;
+            min-height: 700px;
+            overflow: hidden;
+        }
+        
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gallery-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+        
+        .hero-text {
+            max-width: 700px;
+            background: rgba(10, 26, 46, 0.7);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .hero-text h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            color: var(--accent-light);
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 35px;
+            background: var(--accent);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 8px 20px rgba(252, 163, 17, 0.3);
+            animation: fadeInUp 1.4s ease-out;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(252, 163, 17, 0.4);
+            background: #ffd54f;
+        }
+        
+        .btn i {
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+        
+        .btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            margin-left: 15px;
+            box-shadow: none;
+            color: var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.6s ease-out;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.15);
+            padding: 20px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+        
+        .gallery-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 3;
+        }
+        
+        .gallery-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .gallery-dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 100px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 10px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            transform: translateY(0);
+        }
+        
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover:before {
+            height: 100%;
+            opacity: 0.05;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .service-icon {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            transition: var(--transition);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .service-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .service-link:hover {
+            color: var(--secondary);
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Locations Section */
+        .locations {
+            background: linear-gradient(to bottom, var(--light-blue) 0%, rgba(230, 244, 255, 0.8) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .locations:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .locations-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .location-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            transform: translateY(0);
+        }
+        
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .location-header {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--white);
+            padding: 20px;
+            position: relative;
+        }
+        
+        .location-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        
+        .location-body {
+            padding: 25px;
+        }
+        
+        .location-info {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .location-info i {
+            color: var(--primary);
+            margin-right: 12px;
+            font-size: 20px;
+            min-width: 24px;
+            padding-top: 3px;
+        }
+        
+        /* Social Media Section */
+        .social-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-section:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .social-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .social-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--white);
+            transition: var(--transition);
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.1);
+            min-width: 150px;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .social-icon i {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .social-icon span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 100px 0 30px;
+            position: relative;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a:hover i {
+            transform: translateX(0);
+        }
+        
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            font-size: 20px;
+            margin-right: 15px;
+            min-width: 24px;
+        }
+        
+        .footer-contact span {
+            display: block;
+            line-height: 1.6;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 50px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: var(--gray);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .section {
+                padding: 80px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-gallery {
+                height: 85vh;
+                min-height: 600px;
+            }
+            
+            .hero-text {
+                padding: 30px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .stat-item {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .top-bar-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .social-icon {
+                min-width: 120px;
+                padding: 15px;
+            }
+            
+            .social-icon i {
+                font-size: 40px;
+            }
+            
+            .logo-text {
+                font-size: 24px;
+            }
+            
+            .logo-img {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-links">
+                <a href="mailto:info@saabpetroleum.com"><i class="fas fa-envelope"></i> info@saabpetroleum.com</a>
+                <a href="tel:+9611387887"><i class="fas fa-phone"></i> +961 1 387 887</a>
+            </div>
+            <div class="language-selector">
+                <button class="lang-btn active">EN</button>
+                <button class="lang-btn">FR</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header-main">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="https://i.ibb.co/1fZ4v0Q/saab-logo.png" alt="Saab Petroleum Logo" class="logo-img">
+                <div class="logo-text">SAAB PETROLEUM</div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About Us</a>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="#">Our Company</a></li>
+                                <li><a href="#">Our Brand</a></li>
+                                <li><a href="#">In Lebanon</a></li>
+                                <li><a href="#">Safety & Quality</a></li>
+                                <li><a href="#">Sustainability</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Gallery -->
+    <section class="hero-gallery">
+        <div class="gallery-slide active" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')">
+            <div class="gallery-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Premium Fuels & Exceptional Service</h1>
+                    <p>Saab Petroleum has been Lebanon's trusted energy partner since 1951, providing high-quality fuels and automotive services across Beirut.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn">Our Services <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">70+</div>
+                        <div class="stat-label">Years of Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">180+</div>
+                        <div class="stat-label">Service Stations</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">70K</div>
+                        <div class="stat-label">Daily Customers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gallery-slide" style="background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')">
+            <div class="gallery-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Quality Fuels for Optimal Performance</h1>
+                    <p>Our advanced fuel formulations deliver superior performance and efficiency for your vehicle.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn">Our Products <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gallery-slide" style="background-image: url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')">
+            <div class="gallery-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Professional Vehicle Care Services</h1>
+                    <p>Our certified technicians provide comprehensive maintenance services to keep your vehicle in perfect condition.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn">Book Service <i class="fas fa-calendar"></i></a>
+                        <a href="#" class="btn btn-secondary">Our Locations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gallery-controls">
+            <div class="gallery-dot active" data-index="0"></div>
+            <div class="gallery-dot" data-index="1"></div>
+            <div class="gallery-dot" data-index="2"></div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Our Premium Services</h2>
+            <p>Discover the comprehensive range of automotive services we offer at all our locations</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-oil-can"></i>
+                </div>
+                <h3>Oil Change</h3>
+                <p>Professional oil change services using premium lubricants to keep your engine running smoothly and efficiently.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Car Wash</h3>
+                <p>State-of-the-art car wash facilities that provide a thorough clean while being environmentally conscious.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-spray-can"></i>
+                </div>
+                <h3>Car Care Products</h3>
+                <p>Premium car care products to maintain your vehicle's appearance and protect it from the elements.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h3>Convenience Stores</h3>
+                <p>Well-stocked stores offering snacks, beverages, automotive essentials, and daily necessities.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-gas-pump"></i>
+                </div>
+                <h3>Premium Fuels</h3>
+                <p>High-performance fuels engineered to deliver better mileage, engine protection, and reduced emissions.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h3>Vehicle Maintenance</h3>
+                <p>Comprehensive maintenance services performed by certified technicians using genuine parts.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Locations Section -->
+    <section class="section locations">
+        <div class="locations-container">
+            <div class="section-title">
+                <h2>Our Locations</h2>
+                <p>Visit our 24/7 service stations conveniently located across Beirut</p>
+            </div>
+            
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>Badaro, Beirut</h3>
+                        <div class="location-status">OPEN 24/7</div>
+                    </div>
+                    <div class="location-body">
+                        <div class="location-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Badaro Main Road, Beirut</span>
+                        </div>
+                        <div class="location-info">
+                            <i class="fas fa-phone"></i>
+                            <span>01 387 887</span>
+                        </div>
+                        <div class="location-info">
+                            <i class="fas fa-clock"></i>
+                            <span>Open 24 hours, 7 days a week</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>Hamra, Beirut</h3>
+                        <div class="location-status">OPEN 24/7</div>
+                    </div>
+                    <div class="location-body">
+                        <div class="location-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Hamra Street, Beirut</span>
+                        </div>
+                        <div class="location-info">
+                            <i class="fas fa-phone"></i>
+                            <span>01 343 424</span>
+                        </div>
+                        <div class="location-info">
+                            <i class="fas fa-clock"></i>
+                            <span>Open 24 hours, 7 days a week</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>Zaidaniyeh, Beirut</h3>
+                        <div class="location-status">OPEN 24/7</div>
+                    </div>
+                    <div class="location-body">
+                        <div class="location-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Zaidaniyeh Highway, Beirut</span>
+                        </div>
+                        <div class="location-info">
+                            <i class="fas fa-phone"></i>
+                            <span>01 746 474</span>
+                        </div>
+                        <div class="location-info">
+                            <i class="fas fa-clock"></i>
+                            <span>Open 24 hours, 7 days a week</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>Dora, Beirut</h3>
+                        <div class="location-status">COMING SOON</div>
+                    </div>
+                    <div class="location-body">
+                        <div class="location-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dora Highway Intersection, Beirut</span>
+                        </div>
+                        <div class="location-info">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Opening in Q4 2025</span>
+                        </div>
+                        <div class="location-info">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@saabpetroleum.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="social-container">
+            <h2>Connect With Us</h2>
+            <p>Follow Saab Petroleum for the latest updates, promotions, and news</p>
+            
+            <div class="social-icons">
+                <a href="https://instagram.com/saabpetroleumlb/" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                
+                <a href="https://facebook.com/saabpetroleumlb/" class="social-icon" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+                
+                <a href="https://twitter.com/saabpetroleumlb/" class="social-icon" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </a>
+                
+                <a href="https://youtube.com/saabpetroleumlb/" class="social-icon" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <img src="https://i.ibb.co/1fZ4v0Q/saab-logo.png" alt="Saab Petroleum Logo" style="height: 60px; margin-bottom: 20px;">
+                <p style="margin-bottom: 20px;">Lebanon's trusted energy partner since 1951, providing premium fuels and exceptional automotive services.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Products</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Locations</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="footer-links footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Badaro Main Road<br>Beirut, Lebanon</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>+961 1 387 887<br>+961 1 343 424</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@saabpetroleum.com<br>support@saabpetroleum.com</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Business Hours</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-clock"></i> All Stations: 24/7</li>
+                    <li><i class="fas fa-user-tie"></i> Office Hours: 8AM - 6PM</li>
+                    <li><i class="fas fa-calendar-alt"></i> Open 365 Days a Year</li>
+                </ul>
+                
+                <div style="margin-top: 20px;">
+                    <h3>Newsletter</h3>
+                    <div style="display: flex; margin-top: 15px;">
+                        <input type="email" placeholder="Your Email" style="padding: 12px; border-radius: 50px 0 0 50px; border: none; width: 70%;">
+                        <button style="background: var(--accent); color: var(--dark); border: none; padding: 0 20px; border-radius: 0 50px 50px 0; font-weight: 600; cursor: pointer;">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Saab Petroleum Marketing Lebanon. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for Lebanon</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Gallery slider
+        let currentGallerySlide = 0;
+        const gallerySlides = document.querySelectorAll('.gallery-slide');
+        const galleryDots = document.querySelectorAll('.gallery-dot');
+        
+        function showGallerySlide(n) {
+            gallerySlides.forEach(slide => slide.classList.remove('active'));
+            galleryDots.forEach(dot => dot.classList.remove('active'));
+            
+            currentGallerySlide = (n + gallerySlides.length) % gallerySlides.length;
+            
+            gallerySlides[currentGallerySlide].classList.add('active');
+            galleryDots[currentGallerySlide].classList.add('active');
+        }
+        
+        // Auto slide change
+        setInterval(() => {
+            showGallerySlide(currentGallerySlide + 1);
+        }, 5000);
+        
+        // Dot click events
+        galleryDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showGallerySlide(index);
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mainNav = document.querySelector('.main-nav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.style.display = mainNav.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        // Hero stats counter animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.innerHTML;
+                    const count = +counter.innerText;
+                    
+                    const inc = target / speed;
+                    
+                    if(count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCount();
+            });
+        });
+    </script>
+</body>
+</html>
