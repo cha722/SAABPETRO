@@ -509,14 +509,15 @@
             box-shadow: var(--shadow-hover);
         }
         
-       .service-icon {
-    font-size: 60px;
-    color: #2a52be; /* Royal Blue */
-    background: none !important;
-    -webkit-text-fill-color: initial !important;
-    margin-bottom: 25px;
-    transition: var(--transition);
-}
+        .service-icon {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            transition: var(--transition);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .service-card:hover .service-icon {
             transform: scale(1.1);
         }
@@ -730,7 +731,7 @@
             box-shadow: var(--shadow-hover);
         }
         
-        location-header {
+        .location-header {
             background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
             color: var(--white);
             padding: 20px;
@@ -1375,9 +1376,7 @@
             </nav>
             
             <div class="header-actions">
-                <div class="search-icon" id="searchIcon">
-                    <i class="fas fa-search"></i>
-                </div>
+                
                 <div class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -1853,12 +1852,8 @@
                 <img src="SAAB.png" alt="Saab Petroleum Logo" style="height: 60px; margin-bottom: 20px;">
                 <p style="margin-bottom: 20px;">Lebanon's trusted energy partner since 1951, providing premium fuels and exceptional automotive services.</p>
                 <div class="social-icons" style="justify-content: flex-start; gap: 15px;">
-                    <a href="https://facebook.com/saabpetroleumlb/" target="_blank" style="background: rgba(255,255,255,0.1); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://instagram.com/saabpetroleumlb/" target="_blank" style="background: rgba(255,255,255,0.1); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                    
+                    
                     
                 </div>
             </div>
@@ -2109,6 +2104,7 @@
             emailInput.value = '';
         }
     </script>
+
 
 
 
