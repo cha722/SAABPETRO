@@ -127,15 +127,14 @@
         }
         
         .logo-text {
-            font-size: 30px;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
+    font-size: 30px;
+    font-weight: 900;
+    color: #2a52be; /* Royal Blue */
+    background: none; /* Removes gradient */
+    -webkit-text-fill-color: initial; /* Resets transparent text */
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
         .main-nav ul {
             display: flex;
             list-style: none;
@@ -510,16 +509,14 @@
             box-shadow: var(--shadow-hover);
         }
         
-        .service-icon {
-            font-size: 60px;
-            color: var(--primary);
-            margin-bottom: 25px;
-            transition: var(--transition);
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
+       .service-icon {
+    font-size: 60px;
+    color: #2a52be; /* Royal Blue */
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    margin-bottom: 25px;
+    transition: var(--transition);
+}
         .service-card:hover .service-icon {
             transform: scale(1.1);
         }
@@ -734,11 +731,11 @@
         }
         
         .location-header {
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-            color: var(--white);
-            padding: 20px;
-            position: relative;
-        }
+    background: linear-gradient(90deg, #2a52be 0%, #4169e1 100%); /* Royal blue gradient */
+    color: white;
+    padding: 20px;
+    position: relative;
+}
         
         .location-status {
             position: absolute;
